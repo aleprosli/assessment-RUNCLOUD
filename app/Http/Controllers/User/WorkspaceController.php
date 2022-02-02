@@ -99,8 +99,13 @@ class WorkspaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Workspace $workspace)
     {
-        //
+        $workspace->delete();
+
+        return back()->with([
+            'alert-type' => 'alert-danger',
+            'alert-message' => 'Workspace deleted!'
+        ]);
     }
 }
