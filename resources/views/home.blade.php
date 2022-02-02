@@ -83,6 +83,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $workspace->name }}</td>
                                         <td>{{ $workspace->description }}</td>  
+                                        <td><a href="{{ route('workspace:show', $workspace) }}" class="btn btn-success">Show</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
