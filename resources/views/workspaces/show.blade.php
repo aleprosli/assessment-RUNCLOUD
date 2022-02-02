@@ -35,11 +35,19 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Workspace Name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Task Name">
                                     </div>
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>
-                                        <textarea class="form-control" id="description" rows="7" name="description" placeholder="Workspace Description"></textarea>
+                                        <textarea class="form-control" id="description" rows="7" name="description" placeholder="Task Description"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="date">Due Date</label>
+                                        <input type="date" class="form-control" id="due_date" name="due_date" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="time">Due Time</label>
+                                        <input type="time" class="form-control" id="due_time" name="due_time" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
