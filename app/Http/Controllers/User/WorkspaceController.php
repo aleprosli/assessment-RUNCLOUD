@@ -61,9 +61,11 @@ class WorkspaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Workspace $workspace)
     {
-        //
+        $tasks = $workspace->tasks;
+
+        return view('workspaces.show',compact('workspace','tasks'));
     }
 
     /**
