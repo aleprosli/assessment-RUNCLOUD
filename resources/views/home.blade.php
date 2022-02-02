@@ -83,7 +83,8 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $workspace->name }}</td>
                                         <td>{{ $workspace->description }}</td>  
-                                        <td><a href="{{ route('workspace:show', $workspace) }}" class="btn btn-success">Show</a></td>
+                                        <td><a href="{{ route('workspace:show', $workspace) }}" class="btn btn-success">Show</a>
+                                            <a onclick="return confirm('Are you sure to delete workspace?')" href="{{ route('workspace:delete', $workspace) }}" class="btn btn-danger">Delete</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
