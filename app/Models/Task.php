@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Workspace;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,7 @@ class Task extends Model
         'name',
         'description',
         'deadline',
+        'task_complete',
         'status',
     ];
 
@@ -29,5 +31,20 @@ class Task extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function getDueDateAttribute()
+    {
+        return Carbon::parse($this->deadline)->format('Y/m/d');
+    }
+
+    public function getDueTimeAttribute()
+    {
+        return Carbon::parse($this->deadline)->diffForHumans();
+    }
+
+    public function getDueCompletedAttribute()
+    {
+        return Carbon::parse($this->task_complete)->diffForHumans();
     }
 }
