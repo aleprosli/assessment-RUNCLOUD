@@ -30,7 +30,7 @@
                                 <h5 class="modal-title" id="createtasklabel">Create new task</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <form method="post" action="{{ route('task:store') }}">
+                            <form method="post" action="{{ route('task:store', $workspace) }}">
                                 @csrf
                                 <div class="modal-body">
                                     <div class="mb-3">
@@ -64,6 +64,41 @@
                         <div class="alert {{ session()->get('alert-type') }}">
                             {{ session()->get('alert-message') }}
                         </div>
+                    @endif
+                    @if(count($tasks))
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Deadline</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($tasks as $task)
+                                    <tr>
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $task->name }}</td>
+                                        @if ($task->status == 'true')
+                                            <td>{{ $task->due_completed }}</td>
+                                            <td>Completed</td>
+                                            <td><a onclick="return confirm('Are you sure to delete task?')" href="{{ route('task:delete', $task) }}" class="btn btn-danger">Delete</a></td>
+                                        @else
+                                            <td>{{ $task->due_time }}{{ $task->due_date }}</td>
+                                            <td>Incompleted</td>
+                                            <td><a onclick="return confirm('Are you sure to update status to complete?')" href="{{ route('task:update', $task) }}" class="btn btn-warning">Complete</a>
+                                                <a onclick="return confirm('Are you sure to delete task?')" href="{{ route('task:delete', $task) }}" class="btn btn-danger">Delete</a></td>
+                                        @endif
+                                          
+                                        
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                    <p class="text-center mt-3">No task yet! Please create new task </p>
                     @endif
                 </div>
             </div>
