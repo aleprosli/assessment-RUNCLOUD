@@ -63,8 +63,10 @@ class WorkspaceController extends Controller
      */
     public function show(Workspace $workspace)
     {
-        $tasks = $workspace->tasks;
+        $this->authorize('showWorkspace',$workspace);
 
+        $tasks = $workspace->tasks;
+        
         return view('workspaces.show',compact('workspace','tasks'));
     }
 
