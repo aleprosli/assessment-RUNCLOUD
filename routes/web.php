@@ -23,3 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //workspace route
 Route::post('/workspace/create', [App\Http\Controllers\User\WorkspaceController::class, 'store'])->name('workspace:store');
+Route::get('/workspace/show/{workspace}', [App\Http\Controllers\User\WorkspaceController::class, 'show'])->name('workspace:show');
+
+//task route
+Route::post('/task/store', [App\Http\Controllers\User\TaskController::class, 'store'])->name('task:store');
