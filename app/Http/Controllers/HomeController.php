@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $workspaces = auth()->user()->workspaces;
+
+        return view('home', compact('workspaces'));
     }
 }
