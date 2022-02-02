@@ -20,7 +20,8 @@ class CreateTasksTable extends Migration
             $table->uuid('uuid')->nullable();
             $table->string('name')->nullable();
             $table->string('deadline')->nullable();
-            $table->string('status')->default('incompleted');
+            $table->string('task_complete')->nullable();
+            $table->string('status')->default('false');
             $table->timestamps();
 
             $table->foreign('workspace_id')->references('id')->on('workspaces')->onDelete('cascade');
