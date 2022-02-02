@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//workspace route
+Route::post('/workspace/create', [App\Http\Controllers\User\WorkspaceController::class, 'store'])->name('workspace:store');
