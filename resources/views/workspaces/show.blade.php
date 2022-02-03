@@ -87,14 +87,12 @@
                                             <td><a onclick="return confirm('Are you sure to show this task?')" href="{{ route('task:show', $task) }}" class="btn btn-success">Show</a>
                                                 <a onclick="return confirm('Are you sure to delete task?')" href="{{ route('task:delete', $task) }}" class="btn btn-danger">Delete</a></td>
                                         @else
-                                            <td>{{ $task->due_time }}{{ $task->due_date }}</td>
+                                            <td>{{ $task->due_date }}  -  {{ $task->due_time }}</td>
                                             <td>Incompleted</td>
                                             <td><a onclick="return confirm('Are you sure to show this task?')" href="{{ route('task:show', $task) }}" class="btn btn-success">Show</a>
                                                 <a onclick="return confirm('Are you sure to update status to complete?')" href="{{ route('task:update', $task) }}" class="btn btn-warning">Complete</a>
                                                 <a onclick="return confirm('Are you sure to delete task?')" href="{{ route('task:delete', $task) }}" class="btn btn-danger">Delete</a></td>
                                         @endif
-                                          
-                                        
                                     </tr>
                                 @endforeach
                             </tbody>
