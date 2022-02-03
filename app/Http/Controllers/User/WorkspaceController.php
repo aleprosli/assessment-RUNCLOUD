@@ -38,8 +38,8 @@ class WorkspaceController extends Controller
     {
         //Validation
         $request->validate([
-            'name' => 'required|min:5',
-            'description' => 'required|min:10',
+            'name' => 'required',
+            'description' => 'required',
         ]);
 
         //Store using mass asign
