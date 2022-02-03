@@ -45,11 +45,11 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Workspace Name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Workspace Name" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>
-                                        <textarea class="form-control" id="description" rows="7" name="description" placeholder="Workspace Description"></textarea>
+                                        <textarea class="form-control" id="description" rows="7" name="description" placeholder="Workspace Description" required></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
