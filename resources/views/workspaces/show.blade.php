@@ -100,7 +100,7 @@
                     @else
                     <p class="text-center mt-3">No task yet! Please create new task </p>
                     @endif
-                    <a onclick="return confirm('Are you sure go back task?')" href="{{ url()->previous() }}" class="btn btn-warning">Back</a>
+                    <a onclick="return confirm('Are you sure go back workspace?')" href="{{ route('home') }}" class="btn btn-warning">Back</a>
                 </div>
             </div>
         </div>
