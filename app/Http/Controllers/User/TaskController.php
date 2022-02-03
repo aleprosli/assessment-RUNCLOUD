@@ -50,6 +50,7 @@ class TaskController extends Controller
             'workspace_id' => $workspace->id,
             'user_id' => auth()->user()->id,
             'name' => $request->name,
+            'description' => $request->description,
             'deadline' => $request->due_date." ".$request->due_time,
         ]);
 
@@ -65,9 +66,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        //
+        return view('tasks.show', compact('task'));
     }
 
     /**
