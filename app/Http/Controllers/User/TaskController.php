@@ -90,6 +90,8 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
+        $this->authorize('updateTask', $task);
+
         $task->update([
             'task_complete' => Carbon::now(),
             'status' => 'true',
@@ -109,6 +111,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
+        $this->authorize('deleteTask', $task);
+
         $task->delete();
 
         return back()->with([
