@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $deadline_tasks = auth()->user()->tasks()->where('status',false)->get();
+        $deadline_tasks = auth()->user()->tasks()->where('status','false')->get();
 
         $workspaces = auth()->user()->workspaces;
 
