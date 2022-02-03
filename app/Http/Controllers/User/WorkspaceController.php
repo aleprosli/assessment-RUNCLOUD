@@ -101,6 +101,8 @@ class WorkspaceController extends Controller
      */
     public function destroy(Workspace $workspace)
     {
+        $this->authorize('deleteWorkspace',$workspace);
+
         $workspace->delete();
 
         return back()->with([
