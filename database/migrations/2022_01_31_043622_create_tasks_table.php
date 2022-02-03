@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->uuid('uuid')->nullable();
             $table->string('name')->nullable();
+            $table->string('description')->nullable();
             $table->string('deadline')->nullable();
             $table->string('task_complete')->nullable();
             $table->string('status')->default('false');
