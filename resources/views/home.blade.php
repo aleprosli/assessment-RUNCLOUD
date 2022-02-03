@@ -101,7 +101,9 @@
                 <div class="card-header">{{ __('Deadline Workspace') }}</div>
 
                 <div class="card-body">
-                    
+                    @foreach ( $deadline_tasks as $deadline)
+                        <p>{{ $loop->iteration }}. {{ $deadline->name }}</p>
+                    @endforeach
                 </div>
             </div>
         </div>
