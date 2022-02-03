@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card mt-2">
                 <div class="card-header">{{ __('Task') }}
                     <!-- Button trigger modal -->
@@ -84,11 +84,13 @@
                                         @if ($task->status == 'true')
                                             <td>{{ $task->due_completed }}</td>
                                             <td>Completed</td>
-                                            <td><a onclick="return confirm('Are you sure to delete task?')" href="{{ route('task:delete', $task) }}" class="btn btn-danger">Delete</a></td>
+                                            <td><a onclick="return confirm('Are you sure to show this task?')" href="{{ route('task:show', $task) }}" class="btn btn-success">Show</a>
+                                                <a onclick="return confirm('Are you sure to delete task?')" href="{{ route('task:delete', $task) }}" class="btn btn-danger">Delete</a></td>
                                         @else
                                             <td>{{ $task->due_time }}{{ $task->due_date }}</td>
                                             <td>Incompleted</td>
-                                            <td><a onclick="return confirm('Are you sure to update status to complete?')" href="{{ route('task:update', $task) }}" class="btn btn-warning">Complete</a>
+                                            <td><a onclick="return confirm('Are you sure to show this task?')" href="{{ route('task:show', $task) }}" class="btn btn-success">Show</a>
+                                                <a onclick="return confirm('Are you sure to update status to complete?')" href="{{ route('task:update', $task) }}" class="btn btn-warning">Complete</a>
                                                 <a onclick="return confirm('Are you sure to delete task?')" href="{{ route('task:delete', $task) }}" class="btn btn-danger">Delete</a></td>
                                         @endif
                                           
