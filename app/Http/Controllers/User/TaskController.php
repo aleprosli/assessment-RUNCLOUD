@@ -40,7 +40,7 @@ class TaskController extends Controller
     {
         //Validation
         $request->validate([
-            'name' => 'required|min:5',
+            'name' => 'required',
             'due_date' => 'required',
             'due_date' => 'required',
         ]);
