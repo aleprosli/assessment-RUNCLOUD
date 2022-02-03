@@ -68,6 +68,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
+        $this->authorize('showTask', $task);
+
         return view('tasks.show', compact('task'));
     }
 
