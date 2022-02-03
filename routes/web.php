@@ -23,10 +23,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //workspace route
 Route::post('/workspace/create', [App\Http\Controllers\User\WorkspaceController::class, 'store'])->name('workspace:store');
-Route::get('/workspace/show/{workspace}', [App\Http\Controllers\User\WorkspaceController::class, 'show'])->name('workspace:show');
-Route::get('/workspace/delete/{workspace}', [App\Http\Controllers\User\WorkspaceController::class, 'destroy'])->name('workspace:delete');
+Route::get('/workspace/show/{workspace:uuid}', [App\Http\Controllers\User\WorkspaceController::class, 'show'])->name('workspace:show');
+Route::get('/workspace/delete/{workspace:uuid}', [App\Http\Controllers\User\WorkspaceController::class, 'destroy'])->name('workspace:delete');
 
 //task route
-Route::post('/task/store/{workspace}', [App\Http\Controllers\User\TaskController::class, 'store'])->name('task:store');
-Route::get('/task/update/{task}', [App\Http\Controllers\User\TaskController::class, 'update'])->name('task:update');
-Route::get('/task/delete/{task}', [App\Http\Controllers\User\TaskController::class, 'destroy'])->name('task:delete');
+Route::post('/task/store/{workspace:uuid}', [App\Http\Controllers\User\TaskController::class, 'store'])->name('task:store');
+Route::get('/task/show/{task:uuid}', [App\Http\Controllers\User\TaskController::class, 'show'])->name('task:show');
+Route::get('/task/update/{task:uuid}', [App\Http\Controllers\User\TaskController::class, 'update'])->name('task:update');
+Route::get('/task/delete/{task:uuid}', [App\Http\Controllers\User\TaskController::class, 'destroy'])->name('task:delete');
