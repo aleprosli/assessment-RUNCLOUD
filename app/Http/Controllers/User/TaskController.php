@@ -38,6 +38,13 @@ class TaskController extends Controller
      */
     public function store(Request $request, Workspace $workspace)
     {
+        //Validation
+        $request->validate([
+            'name' => 'required|min:5',
+            'due_date' => 'required',
+            'due_date' => 'required',
+        ]);
+
         //Store using mass asign
         Task::create([
             'workspace_id' => $workspace->id,
